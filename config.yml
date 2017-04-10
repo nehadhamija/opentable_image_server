@@ -1,0 +1,6 @@
+port: <port>
+input_bucket: <input_bucket>
+output_bucket: <input_bucket>
+region: <region>
+access_key: *****
+secret_key: *****
