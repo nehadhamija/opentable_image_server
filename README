@@ -1,0 +1,27 @@
+Image Server
+
+The server is implemented in GoLang. It provides all APIs required client by client. It also listens to new uploads on s3, resizes images and notifies clients.
+
+The APIs provided by the server:
+
+1. /new_image_notify POST
+Receives SNS notification from AWS and is responsible for SNS subscription confirmation. Upon receiving a new image notification, the server locally resizes the image to desired dimensions, uploads to the output bucket and notifies clients that have registered through eventsource.
+
+2. /upload_url GET
+Get upload URL, that will allow clients to upload input images to the server.
+
+3. /images GET
+Get a list of image urls from s3 output(thumbnail) bucket.
+
+4. /image_uploaded eventsource end-point
+Eventsource endpoint for client to register for new (thumbnail) images.
+
+---------------------------------------------------------------------------------------------
+
+Image Storage
+
+All the images are stored in AWS S3. There's an input and an Output bucket.
+
+The input bucket stores all the original uploaded imagees, there's a SNS notification to the server whenever a new image is uploaded to this bucket.
+
+The output bucket has all the resized thumbnails uploaded by the server.
