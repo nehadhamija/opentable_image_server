@@ -16,6 +16,13 @@ Get a list of image urls from s3 output(thumbnail) bucket.
 4. /image_uploaded eventsource end-point
 Eventsource endpoint for client to register for new (thumbnail) images.
 
+SERVER CONFIGURATIONS:
+
+The port is to be configured using environment variable PORT.
+
+The AWS region, bucket names and access key, secret key can be configured through config file config.yml.
+
+
 ---------------------------------------------------------------------------------------------
 
 Image Storage
