@@ -1,0 +1,1 @@
+web: opentable-image-server
